@@ -1,0 +1,15 @@
+spring:
+  #数据库连接的相关配置
+  datasource:
+    # 数据库访问配置
+    # 主数据源，默认的
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/weibo?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+    show-sql: true
