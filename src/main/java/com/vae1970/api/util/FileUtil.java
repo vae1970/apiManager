@@ -50,7 +50,7 @@ public class FileUtil {
      * @param targetFile target
      * @return boolean
      */
-    private static boolean fileComplete(File sourceFile, File targetFile) {
+    public static boolean fileComplete(File sourceFile, File targetFile) {
         return sourceFile.exists() && targetFile.exists() && sourceFile.length() == targetFile.length();
     }
 

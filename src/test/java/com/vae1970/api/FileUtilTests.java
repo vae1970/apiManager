@@ -31,4 +31,9 @@ public class FileUtilTests {
         singleThreadPool.shutdown();
     }
 
+    @Test
+    public void fileComplete () {
+        FileUtil.fileComplete(new File("/dev/shm/customize_profile_20180809095027"),null);
+    }
+
 }
