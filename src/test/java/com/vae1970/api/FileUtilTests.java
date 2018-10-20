@@ -32,8 +32,16 @@ public class FileUtilTests {
     }
 
     @Test
-    public void fileComplete () {
-        FileUtil.fileComplete(new File("/dev/shm/customize_profile_20180809095027"),null);
+    public void fileComplete() {
+        FileUtil.fileComplete(new File("/dev/shm/customize_profile_20180809095027"), null);
+    }
+
+    @Test
+    public void getFile() {
+        File file1 = FileUtil.getFile("/dev/shm/customize_profile_20180809095027");
+        System.out.println("file1: " + (file1 == null ? "null" : file1.length()));
+        File file2 = FileUtil.getFile("/dev/shm/customize_profile_20180809095027", 10, 10L);
+        System.out.println("file2: " + (file2 == null ? "null" : file2.length()));
     }
 
 }
