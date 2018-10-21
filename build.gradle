@@ -43,4 +43,5 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.security:spring-security-test')
 	compile group: 'com.google.guava', name: 'guava', version: '23.5-jre'
+	compile 'com.alibaba:fastjson:1.2.49'
 }
