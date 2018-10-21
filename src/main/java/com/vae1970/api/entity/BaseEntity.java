@@ -2,6 +2,7 @@ package com.vae1970.api.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 @Getter
 @Setter
 @MappedSuperclass
+@Accessors(chain = true)
 public class BaseEntity {
 
     @Id
