@@ -33,7 +33,7 @@ public class FileUtilTests {
 
     @Test
     public void fileComplete() {
-        FileUtil.fileComplete(new File("/dev/shm/customize_profile_20180809095027"), null);
+        FileUtil.fileComplete(new File("/dev/shm/customize_profile_20180809095027"), new File("/dev/shm/customize_profile_20180809095027"));
     }
 
     @Test
