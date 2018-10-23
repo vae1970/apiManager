@@ -1,6 +1,5 @@
 package com.vae1970.api.entity;
 
-import com.vae1970.api.entity.enums.DataType;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,8 +23,6 @@ public class RequestParameter extends BaseEntity {
     private Api api;
 
     private String name;
-
-    private DataType type;
 
     private Boolean necessary;
 

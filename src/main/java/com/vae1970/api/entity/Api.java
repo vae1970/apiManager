@@ -1,5 +1,6 @@
 package com.vae1970.api.entity;
 
+import com.vae1970.api.entity.enums.RequestMethodEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,7 @@ public class Api extends BaseEntity {
     @Column(name = "[usage]")
     private String usage;
 
-    private String method;
+    private RequestMethodEnum method;
 
     private String location;
 
