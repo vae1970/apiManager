@@ -27,9 +27,6 @@ public class FileUtilTests {
     public void before() {
         FileUtil.copyFile(new File("/home/vae/Pictures/customize_profile_20180809095027")
                 , "/dev/shm/customize_profile_20180809095027");
-        for (int i = 0; i < 1000; i++) {
-            fileThreadPool.execute(() -> System.out.print(""));
-        }
     }
 
     @Test
