@@ -11,9 +11,10 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class FileUtil {
 
-    private static final Map<String, AtomicReference<Object>> TEMP_FILE_MAP = new ConcurrentHashMap<>();
-    private static final Object INITIAL_VALUE = new Object();
-    private static final Object UPDATE_VALUE = new Object();
+    private static volatile Map<String, AtomicReference<Object>> TEMP_FILE_MAP = new ConcurrentHashMap<>();
+    private static final Object LOCK = new Object();
+    private static volatile Object INITIAL_VALUE = new Object();
+    private static volatile Object UPDATE_VALUE = new Object();
 
     /**
      * copy file(thread safe)
@@ -28,7 +29,7 @@ public class FileUtil {
         AtomicReference<Object> sign;
         File targetFile = new File(targetFilePath);
         if ((sign = TEMP_FILE_MAP.get(targetFilePath)) == null) {
-            synchronized (TEMP_FILE_MAP) {
+            synchronized (LOCK) {
                 if ((sign = TEMP_FILE_MAP.get(targetFilePath)) == null && !fileComplete(sourceFile, targetFile)) {
                     sign = new AtomicReference<>(INITIAL_VALUE);
                     TEMP_FILE_MAP.put(targetFilePath, sign);

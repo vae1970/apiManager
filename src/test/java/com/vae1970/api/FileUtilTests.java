@@ -12,13 +12,18 @@ import java.util.concurrent.*;
 @RunWith(JUnit4.class)
 public class FileUtilTests {
 
-    @Test
-    public void copyAndGet() {
+    private static ExecutorService singleThreadPool;
+
+    static {
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("file-thread-pool-%d").build();
-        ExecutorService singleThreadPool = new ThreadPoolExecutor(100, 200,
+        singleThreadPool = new ThreadPoolExecutor(1000, 2000,
                 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+    }
+
+    @Test
+    public void copyAndGet() {
         String filePath = "/dev/shm/666";
         int threadNumber = 1000;
         File sourceFile = new File("/dev/shm/customize_profile_20180809095027");
